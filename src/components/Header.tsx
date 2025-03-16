@@ -29,7 +29,7 @@ const Header: React.FC = () => {
       <div className="container flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
-            ResumeAI
+            ResuTune
           </span>
         </div>
         <nav className="hidden md:flex space-x-8">

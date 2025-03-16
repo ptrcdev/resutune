@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
             <h3 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600">
-              ResumeAI
+              ResuTune
             </h3>
             <p className="text-muted-foreground text-sm">
               AI-powered resume analysis to help you land your dream job
