@@ -17,6 +17,8 @@ export interface ResumeAnalysisResult {
   openai_feedback: string;
 }
 
+const API_URL = import.meta.env.VITE_NESTJS_API_URL;
+const PYTHON_API_URL = import.meta.env.VITE_PYTHON_API_URL;
 /**
  * Calls the backend API to analyze a resume against a job description.
  * 
@@ -41,13 +43,13 @@ export const analyzeResume = async (
     formData.append("file", file);
     formData.append("jobText", jobText);
 
-    response = await fetch("http://localhost:3100/upload", {
+    response = await fetch(API_URL + "/upload", {
       method: "POST",
       body: formData,
     });
   } else {
     // Otherwise, send the pasted resume text directly to the FastAPI analysis endpoint.
-    response = await fetch("http://localhost:8000/analyze-resume", {
+    response = await fetch(PYTHON_API_URL + "/analyze-resume", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
