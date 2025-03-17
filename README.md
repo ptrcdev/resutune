@@ -1,69 +1,117 @@
-# Welcome to your Lovable project
+# Resume Analyzer Frontend
 
-## Project info
+A sleek, responsive Next.js application for analyzing resumes against job descriptions. This tool leverages state-of-the-art NLP techniques (via spaCy and OpenAI) from our backend services to provide actionable feedback, detailed scoring, and improvement suggestions to help job seekers optimize their resumes.
 
-**URL**: https://lovable.dev/projects/68927b26-df7d-412d-85c6-7e39f4a7c68b
+---
 
-## How can I edit this code?
+## Table of Contents
 
-There are several ways of editing your application.
+- [Overview](#overview)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Getting Started](#getting-started)
+  - [Installation](#installation)
+  - [Environment Variables](#environment-variables)
+  - [Running Locally](#running-locally)
+- [Project Structure](#project-structure)
+- [Deployment](#deployment)
+- [Future Improvements](#future-improvements)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/68927b26-df7d-412d-85c6-7e39f4a7c68b) and start prompting.
+## Overview
 
-Changes made via Lovable will be committed automatically to this repo.
+This project is the frontend part of a Resume Analyzer application that allows users to either upload a resume file (PDF, DOCX, or TXT) or paste resume text. The application then sends the data to backend services (a NestJS API and a Python analysis service) to compute a comprehensive analysis report that includes:
 
-**Use your preferred IDE**
+- **Overall Fit Score** – A percentage score indicating how well the resume matches a given job description.
+- **Detailed Metrics** – Including word count, sentence length, readability, keyword optimization, and more.
+- **Improvement Suggestions** – Actionable tips to refine the resume.
+- **OpenAI Feedback** – Qualitative and actionable feedback rendered from Markdown.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Features
 
-Follow these steps:
+- **Multi-Mode Input:** Choose between uploading a resume file or pasting resume text.
+- **Real-Time Analysis:** Submit your resume and receive a detailed analysis report.
+- **Intuitive UI:** Clean, mobile-first design using Tailwind CSS and modern UI components.
+- **Markdown Rendering:** Displays OpenAI feedback in a user-friendly format using react-markdown.
+- **API Integration:** Seamlessly interacts with the deployed backend services.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Technologies
 
-# Step 3: Install the necessary dependencies.
-npm i
+- **Frontend Framework:** Vite with TypeScript
+- **Styling:** Tailwind CSS
+- **UI Components:** Custom components & Radix UI
+- **Markdown Rendering:** react-markdown
+- **State Management:** React hooks
+- **API Integration:** Fetch API with environment variable support
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+---
+
+## Getting Started
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/ptrcdev/resutune
+   cd resutune
+
+2. **Install dependencies:**
+
+   ```bash
+   pnpm install
+   ```
+
+## Environment Variables:
+
+   Create a `.env.local` file in the root directory and add the following variables:
+
+   ```bash
+   VITE_NESTJS_API_URL=http://localhost:3100
+   VITE_PYTHON_API_URL=http://localhost:8000
+   ```
+
+## Running Locally
+
+   ```bash
+   pnpm run dev
+   ```
+
+   Then open http://localhost:8080 on your browser.
+
+## Project Structure
+
+```bash
+resutune/
+├── src/
+│   ├── components/
+│   ├── lib/
+│   ├── hooks/
+│   ├── pages/
+│   ├── utils/
+│   ├── App.css
+│   ├── index.css
+│   ├── main.tsx
+│   └── App.tsx
+├── .env.local
+├── package.json
+├── README.md
+└── vite.config.ts
 ```
 
-**Edit a file directly in GitHub**
+## Deployment
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+The frontend is deployed on Vercel with continuous integration from Github.
 
-**Use GitHub Codespaces**
+## Future Improvements
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with .
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/68927b26-df7d-412d-85c6-7e39f4a7c68b) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+- Enhanced Feedback: Refine the resume analysis rubric based on user feedback.
+- User Authentication: Allow users to save and revisit past analyses.
+- Additional File Parsing: Improve file parsing capabilities for various resume formats.
+- Progressive Web App (PWA): Implement PWA features for offline usage.
+- UI/UX Enhancements: Further polish the user interface based on user testing.
